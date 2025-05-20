@@ -1,22 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
 
 function App() {
+  useEffect(() => {
+    // Get the current path
+    const path = window.location.pathname;
+
+    // Check if the path matches our redirect rule
+    if (path === "/store/resoles" || path === "/store/resoles/") {
+      // Redirect to the new URL
+      window.location.replace("https://thegearroom.com/pages/resoles");
+    } else {
+      // For any other path, redirect to the main domain
+      window.location.replace("https://thegearroom.com");
+    }
+  }, []);
+
+  // This return statement won't be visible as the redirect happens immediately
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Redirecting you to The Gear Room...</p>
       </header>
     </div>
   );

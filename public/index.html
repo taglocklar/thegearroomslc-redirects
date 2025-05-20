@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Redirecting to The Gear Room"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -24,7 +24,26 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <meta http-equiv="refresh" content="0;URL='https://thegearroom.com'" id="meta-refresh">
+    <title>Redirecting to The Gear Room</title>
+    <script>
+      // Extract the path from the URL if it exists
+      (function() {
+        var path = window.location.search.match(/path=([^&]*)/);
+        if (path && path[1]) {
+          history.replaceState(null, null, decodeURIComponent(path[1]));
+        }
+      })();
+
+      (function() {
+        var path = window.location.pathname;
+        var metaRefresh = document.getElementById('meta-refresh');
+        
+        if (path === "/store/resoles" || path === "/store/resoles/") {
+          metaRefresh.content = "0;URL='https://thegearroom.com/pages/resoles'";
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
